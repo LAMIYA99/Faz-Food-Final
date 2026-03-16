@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+
+body {
+  background-color: #F4F1EA;
+}
+@theme inline {
+  --font-barlow: var(--font-barlow-condensed);
+}
+
+
