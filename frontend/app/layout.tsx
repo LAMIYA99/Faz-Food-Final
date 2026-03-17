@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import MainLayout from "@/components/layout/MainLayout";
+import TanstackQueryProvider from "@/providers/TanstackQueryProvider";
+import { Toaster } from "react-hot-toast";
 
 const fontBarlow = Barlow_Condensed({
   weight: ["400", "700"],
@@ -21,11 +23,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <MainLayout>
-        <body className={`${fontBarlow.variable}  antialiased`}>
-          {children}
-        </body>
-      </MainLayout>
+      <body className={`${fontBarlow.variable} antialiased`}>
+        <TanstackQueryProvider>
+          <Toaster position="top-center" />
+          <MainLayout>
+            {children}
+          </MainLayout>
+        </TanstackQueryProvider>
+      </body>
     </html>
   );
 }
